@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  MessageView.swift
 //  gameLobby
 //
 //  Created by Frederick Mo on 2022/5/19.
@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct MessageView: View {
     var body: some View {
         NavigationView {
-            Text("Profile View")
+            Text("暂无消息")
                 .padding()
-                .navigationTitle("个人中心")
+                .navigationTitle("消息通知")
         }
         .navigationViewStyle(.stack)
     }
 }
 
-struct ProfileView_Previews: PreviewProvider {
+struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        MessageView()
     }
 }

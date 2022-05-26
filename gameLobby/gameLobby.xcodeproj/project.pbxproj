@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7515FB33283CB45F00C86240 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515FB32283CB45F00C86240 /* ImagePicker.swift */; };
+		7515FB35283CC2F900C86240 /* UserDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515FB34283CC2F900C86240 /* UserDataViewModel.swift */; };
+		7515FB39283CF24A00C86240 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515FB38283CF24A00C86240 /* ViewController.swift */; };
+		7515FB3B283D00ED00C86240 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7515FB3A283D00ED00C86240 /* CommentModel.swift */; };
 		753B128B28365A49003DC586 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B128A28365A49003DC586 /* GameModel.swift */; };
 		753B128F28366507003DC586 /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B128E28366507003DC586 /* GameCard.swift */; };
 		753B1291283670A2003DC586 /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B1290283670A2003DC586 /* GameList.swift */; };
 		753B129328368E38003DC586 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753B129228368E38003DC586 /* GameView.swift */; };
+		75D646B12838F4F800F31A43 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D646B02838F4F800F31A43 /* LoginView.swift */; };
+		75D646B32839080500F31A43 /* FrontPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D646B22839080500F31A43 /* FrontPageView.swift */; };
+		75D646B52839096500F31A43 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D646B42839096500F31A43 /* SignUpView.swift */; };
+		75D646B728390E3000F31A43 /* GetVerificationCodeBeforeSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D646B628390E3000F31A43 /* GetVerificationCodeBeforeSignUp.swift */; };
+		75D646BA283910A400F31A43 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D646B9283910A400F31A43 /* ViewModel.swift */; };
 		75FA06AA28363DDF0089FD9B /* gameLobbyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA06A928363DDF0089FD9B /* gameLobbyApp.swift */; };
 		75FA06AC28363DDF0089FD9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA06AB28363DDF0089FD9B /* ContentView.swift */; };
 		75FA06AE28363DE20089FD9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75FA06AD28363DE20089FD9B /* Assets.xcassets */; };
@@ -23,10 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7515FB31283CB3FC00C86240 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7515FB32283CB45F00C86240 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7515FB34283CC2F900C86240 /* UserDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModel.swift; sourceTree = "<group>"; };
+		7515FB38283CF24A00C86240 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7515FB3A283D00ED00C86240 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		753B128A28365A49003DC586 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		753B128E28366507003DC586 /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
 		753B1290283670A2003DC586 /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 		753B129228368E38003DC586 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		75D646B02838F4F800F31A43 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		75D646B22839080500F31A43 /* FrontPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontPageView.swift; sourceTree = "<group>"; };
+		75D646B42839096500F31A43 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		75D646B628390E3000F31A43 /* GetVerificationCodeBeforeSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVerificationCodeBeforeSignUp.swift; sourceTree = "<group>"; };
+		75D646B9283910A400F31A43 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		75FA06A628363DDF0089FD9B /* gameLobby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameLobby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FA06A928363DDF0089FD9B /* gameLobbyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameLobbyApp.swift; sourceTree = "<group>"; };
 		75FA06AB28363DDF0089FD9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -50,6 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7515FB30283C821B00C86240 /* TabBars */ = {
+			isa = PBXGroup;
+			children = (
+				75FA06BD28363E920089FD9B /* HomeView.swift */,
+				75FA06BF28363EE20089FD9B /* MessageView.swift */,
+				75FA06C128363F010089FD9B /* CategoryView.swift */,
+				75FA06C328363F0F0089FD9B /* ProfileView.swift */,
+				75FA06C5283640E30089FD9B /* TabBar.swift */,
+			);
+			path = TabBars;
+			sourceTree = "<group>";
+		};
 		753B128C283664EF003DC586 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +94,20 @@
 			children = (
 				753B128E28366507003DC586 /* GameCard.swift */,
 				753B1290283670A2003DC586 /* GameList.swift */,
+				7515FB32283CB45F00C86240 /* ImagePicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		75D646B828390E3500F31A43 /* FrontPages */ = {
+			isa = PBXGroup;
+			children = (
+				75D646B02838F4F800F31A43 /* LoginView.swift */,
+				75D646B22839080500F31A43 /* FrontPageView.swift */,
+				75D646B42839096500F31A43 /* SignUpView.swift */,
+				75D646B628390E3000F31A43 /* GetVerificationCodeBeforeSignUp.swift */,
+			);
+			path = FrontPages;
 			sourceTree = "<group>";
 		};
 		75FA069D28363DDF0089FD9B = {
@@ -86,6 +129,7 @@
 		75FA06A828363DDF0089FD9B /* gameLobby */ = {
 			isa = PBXGroup;
 			children = (
+				7515FB31283CB3FC00C86240 /* Info.plist */,
 				75FA06BB28363E480089FD9B /* Models */,
 				75FA06BA28363E400089FD9B /* ViewModels */,
 				75FA06B828363E290089FD9B /* Views */,
@@ -117,6 +161,9 @@
 		75FA06BA28363E400089FD9B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				75D646B9283910A400F31A43 /* ViewModel.swift */,
+				7515FB34283CC2F900C86240 /* UserDataViewModel.swift */,
+				7515FB38283CF24A00C86240 /* ViewController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -125,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				753B128A28365A49003DC586 /* GameModel.swift */,
+				7515FB3A283D00ED00C86240 /* CommentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,12 +180,9 @@
 		75FA06BC28363E500089FD9B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7515FB30283C821B00C86240 /* TabBars */,
+				75D646B828390E3500F31A43 /* FrontPages */,
 				75FA06AB28363DDF0089FD9B /* ContentView.swift */,
-				75FA06BD28363E920089FD9B /* HomeView.swift */,
-				75FA06BF28363EE20089FD9B /* MessageView.swift */,
-				75FA06C128363F010089FD9B /* CategoryView.swift */,
-				75FA06C328363F0F0089FD9B /* ProfileView.swift */,
-				75FA06C5283640E30089FD9B /* TabBar.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -213,16 +258,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				75FA06C028363EE20089FD9B /* MessageView.swift in Sources */,
+				7515FB39283CF24A00C86240 /* ViewController.swift in Sources */,
 				753B128F28366507003DC586 /* GameCard.swift in Sources */,
 				75FA06BE28363E920089FD9B /* HomeView.swift in Sources */,
+				7515FB33283CB45F00C86240 /* ImagePicker.swift in Sources */,
 				75FA06AC28363DDF0089FD9B /* ContentView.swift in Sources */,
+				75D646B32839080500F31A43 /* FrontPageView.swift in Sources */,
 				75FA06AA28363DDF0089FD9B /* gameLobbyApp.swift in Sources */,
+				75D646BA283910A400F31A43 /* ViewModel.swift in Sources */,
 				753B129328368E38003DC586 /* GameView.swift in Sources */,
+				75D646B12838F4F800F31A43 /* LoginView.swift in Sources */,
 				75FA06C428363F0F0089FD9B /* ProfileView.swift in Sources */,
 				753B128B28365A49003DC586 /* GameModel.swift in Sources */,
+				75D646B52839096500F31A43 /* SignUpView.swift in Sources */,
 				753B1291283670A2003DC586 /* GameList.swift in Sources */,
 				75FA06C228363F010089FD9B /* CategoryView.swift in Sources */,
+				75D646B728390E3000F31A43 /* GetVerificationCodeBeforeSignUp.swift in Sources */,
+				7515FB3B283D00ED00C86240 /* CommentModel.swift in Sources */,
 				75FA06C6283640E30089FD9B /* TabBar.swift in Sources */,
+				7515FB35283CC2F900C86240 /* UserDataViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +410,11 @@
 				DEVELOPMENT_TEAM = JFC3YXNHTF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = gameLobby/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Leisure Tribe";
+				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机拍照获取头像并上传";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "访问相册获取头像并上传";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问相册获取头像并上传";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -385,6 +444,11 @@
 				DEVELOPMENT_TEAM = JFC3YXNHTF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = gameLobby/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Leisure Tribe";
+				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机拍照获取头像并上传";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "访问相册获取头像并上传";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "访问相册获取头像并上传";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

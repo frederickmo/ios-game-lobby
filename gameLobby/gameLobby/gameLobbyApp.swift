@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct gameLobbyApp: App {
+    
+    @EnvironmentObject var globalVariables: GlobalVariables
+    @StateObject var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

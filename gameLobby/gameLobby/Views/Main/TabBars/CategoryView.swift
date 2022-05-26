@@ -12,7 +12,16 @@ struct CategoryView: View {
         NavigationView {
             List {
                 ForEach(Category.allCases) { category in
-                    Text(category.rawValue)
+                    NavigationLink {
+                        ScrollView {
+                            GameList(games: Game.all.filter{ $0.category.contains(category.rawValue) })
+                        }
+                        .navigationTitle(category.rawValue + "游戏")
+                    } label: {
+                        Text(category.rawValue)
+                            .fontWeight(.medium)
+                    }
+                    
                 }
             }
             .navigationTitle("游戏分类")
