@@ -36,12 +36,14 @@ struct RegisterResultResponse: Decodable {
 struct LoginResponse: Decodable {
     var msg: String
     var token: String
+    var userName: String
+    var headPortrait: String
     var status: String
 }
 
 struct LeaveCommentResponse: Decodable {
-    var msg: String
-    var status: String
+    var msg: String? = ""
+    var status: String? = ""
 }
 
 struct LogOutResponse: Decodable {
@@ -55,7 +57,7 @@ class ViewModel: ObservableObject {
     @Published var registerByEmailResponse = RegisterByEmailResponse(msg: "", status: "")
     
     @Published var registerResultResponse = RegisterResultResponse(msg: "", status: "")
-    @Published var loginResponse = LoginResponse(msg: "", token: "", status: "")
+    @Published var loginResponse = LoginResponse(msg: "", token: "", userName: "", headPortrait: "", status: "")
     @Published var logOutResponse = LogOutResponse(msg: "", status: "")
     
     
@@ -180,6 +182,7 @@ class ViewModel: ObservableObject {
                     defaults.set(email, forKey: UserDefaultKeys.email)
                     defaults.set(password, forKey: UserDefaultKeys.password)
                     defaults.set(loginResponse.token, forKey: UserDefaultKeys.token)
+                    defaults.set(loginResponse.userName, forKey: UserDefaultKeys.name)
                     
                     defaults.set(true, forKey: UserDefaultKeys.automaticLogin)
                     
@@ -269,14 +272,13 @@ class ViewModel: ObservableObject {
 //        }
     }
     
-    func leaveCommentOnGame(email: String, token: String, content: String, gameName: String, score: String) {
-        
+    func leaveCommentOnGame(email: String, token: String, content: String, gameName: String, score: Int) {
         guard let url = URL(string: "http://124.222.82.210:8176/comment/writeComment") else {
+            print_log("URL解析失败")
             return
         }
-        
         var request = URLRequest(url: url)
-        
+        let scoreStr = String(score)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(email, forHTTPHeaderField: "email")
@@ -284,35 +286,38 @@ class ViewModel: ObservableObject {
         let body: [String: AnyHashable] = [
             "description": content,
             "gameName": gameName,
-            "score": score
+            "score": scoreStr
         ]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
-                print("发送请求失败")
+                print_log("发送请求失败")
                 return
             }
-            
+            print(response!)
             do {
                 let response = try JSONDecoder().decode(LeaveCommentResponse.self, from: data)
+                print(response)
                 DispatchQueue.main.async {
                     self.leaveCommentResponse = response
                 }
                 
-                print("SUCCESS: \(String(describing: self.leaveCommentResponse))")
+                print(String(describing: self.leaveCommentResponse))
                 if (self.leaveCommentResponse.status == "OK") {
-                    print("成功發送")
+                    print_log("成功發送")
                 } else {
-                    print("发送失败")
+                    print_log("发送失败")
                 }
             } catch {
-                print("调用发送评论API失败")
-                print(error)
+                print_log("调用发送评论API失败")
+                print_log(error)
             }
-        }
+        }.resume()
+    }
+    
+    func getComments() {
         
-        task.resume()
     }
 }
 

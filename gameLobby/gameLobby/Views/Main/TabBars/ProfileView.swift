@@ -7,6 +7,8 @@
 
 import SwiftUI
 import OSLog
+import Alamofire
+import ToastUI
 
 struct ProfileView: View {
     
@@ -23,6 +25,14 @@ struct ProfileView: View {
     
     @StateObject var userDataViewModel = UserDataViewModel()
     @StateObject var viewModel = ViewModel()
+    
+    @State private var asyncImageUrl: String = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/frederickmo@163.comheadportrait.jpg"
+    
+    @State private var showSuccessToast: Bool = false
+    @State private var showFailureToast: Bool = false
+    @State private var showLogOutToast: Bool = false
+    
+    @State private var avatarButtonDisable: Bool = false
     
     @EnvironmentObject var globalVariables: GlobalVariables
     
@@ -92,6 +102,7 @@ struct ProfileView: View {
                                                     globalVariables.loggedIn = false
                                                     
                                                     self.showLoggedOut.toggle()
+                                                    self.showLogOutToast.toggle()
                                                     
                                                 } else {
                                                     print_log("登出失败")
@@ -115,6 +126,10 @@ struct ProfileView: View {
                             }
                             .frame(width: 200, alignment: .leading)
                             .padding(.top, 8)
+                            .toast(isPresented: $showLogOutToast, dismissAfter: 1.0) {
+                                ToastView("已退出")
+                            }
+
 
                         }
                         
@@ -128,11 +143,34 @@ struct ProfileView: View {
                                 showUploadHandleImageType.toggle()
                                 
                             } label: {
-                                Image("defaultAvatar")
-                                    .resizable()
-                                    .scaledToFit()
+                                AsyncImage(url: URL(string: asyncImageUrl))  { phase in
+                                    switch phase {
+                                    case .empty:
+                                        ProgressView()
+                                            .frame(width: 120, height: 120)
+                                    case .success(let image):
+                                        image.resizable()
+                                             .aspectRatio(contentMode: .fill)
+                                             .frame(maxWidth: 300, maxHeight: 100)
+                                    case .failure:
+                                        Image(systemName: "photo")
+                                            .scaledToFit()
+                                            .frame(width: 120, height: 120)
+                                    @unknown default:
+                                        // Since the AsyncImagePhase enum isn't frozen,
+                                        // we need to add this currently unused fallback
+                                        // to handle any new cases that might be added
+                                        // in the future:
+                                        EmptyView()
+                                    }
+                                }
+                                .accentColor(showSuccessToast ? .black : .black)
+                                .refreshable {
+                                    showSuccessToast.toggle()
+                                }
                             }
                             .frame(width: 120, height: 120, alignment: .trailing)
+                            .disabled(avatarButtonDisable)
                             
                         }
                         .frame(width: 120, height: 120, alignment: .trailing)
@@ -185,16 +223,22 @@ struct ProfileView: View {
                 print_log(image.size)
                 
                 let defaults = UserDefaults.standard
-                
+
                 if let email = defaults.string(forKey: UserDefaultKeys.email), let token = defaults.string(forKey: UserDefaultKeys.token) {
-                    userDataViewModel.uploadImage(email: email, token: token, image: image)
+                    uploadImage(image: image.pngData()!, email: email, token: token)
                 } else {
                     print_log("未获取到本地email和token")
                 }
-                
-                
             }
         })
+        .toast(isPresented: $showSuccessToast, dismissAfter: 1.0) {
+            ToastView("上传成功")
+        }
+        .toast(isPresented: $showFailureToast, dismissAfter: 1.0) {
+            ToastView("上传失败")
+        }
+
+
     }
     }
                         
@@ -206,6 +250,56 @@ struct ProfileView: View {
             return "未知"
         }
     }
+    
+    func uploadImage(image: Data, email: String ,token: String)
+        {
+            asyncImageUrl = ""
+            avatarButtonDisable = true
+            //Parameter HERE
+    //        let parameters = [
+    //            "id": "429",
+    //            "docsFor" : "visitplan"
+    //        ]
+            //Header HERE
+            let headers: HTTPHeaders = [
+                "email": email,
+                "token" : token,
+                "Content-type": "multipart/form-data",
+                "Content-Disposition" : "form-data"
+            ]
+            
+            let imgData = image
+            
+            AF.upload(multipartFormData: { multipartFormData in
+                //Parameter for Upload files
+                multipartFormData.append(imgData, withName: "file",fileName: "furkan.png" , mimeType: "image/png")
+    //            for (key, value) in parameters
+    //            {
+    //                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+    //            }
+            },
+               to: "http://124.222.82.210:8176/user/uploadHeadPortrait", //URL Here
+              usingThreshold:UInt64.init(),
+                method: .post,
+                headers: headers //pass header dictionary here
+            ).responseJSON(completionHandler: { data in
+                switch data.result {
+                case .success(let result):
+                    print(type(of: result))
+                    print_log("SUCCESS")
+                    print(result)
+                    // 这是一个黑科技：先用refreshable()修饰符跟踪bool变量的toggle()方法，
+                    // 再更新url就可以达到更新目的
+                    showSuccessToast.toggle()
+                    asyncImageUrl = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/frederickmo@163.comheadportrait.jpg"
+                    avatarButtonDisable = false
+                case .failure(let error):
+                    print_log("ERROR")
+                    print(error)
+                    showFailureToast.toggle()
+                }
+            })
+        }
     
 }
 

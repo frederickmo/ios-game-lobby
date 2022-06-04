@@ -43,7 +43,7 @@ struct GameCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.black.opacity(0.3), radius: 15, x: 0, y: 10)
         .overlay(alignment: .bottom) {
-            Text(game.name)
+            Text(game.displayName)
                 .font(.headline)
                 .foregroundColor(.white)
                 .shadow(color: .black, radius: 3, x: 0, y: 0)

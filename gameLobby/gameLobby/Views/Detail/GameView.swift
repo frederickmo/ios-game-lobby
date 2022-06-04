@@ -45,7 +45,7 @@ struct GameView: View {
             .background(LinearGradient(colors: [Color(.gray).opacity(0.3), Color(.gray)], startPoint: .top, endPoint: .bottom))
             
             VStack(spacing: 30) {
-                Text(game.name)
+                Text(game.displayName)
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
@@ -125,11 +125,11 @@ struct GameView: View {
                         
                         Button {
                             
-//                            let defaults = UserDefaults.standard
-//
-//                            if let email = defaults.string(forKey: UserDefaultKeys.email), let token = defaults.string(forKey: UserDefaultKeys.token) {
-//                                viewModel.leaveCommentOnGame(email: email, token: token, content: comment, gameName: game.name, score: "5")
-//                            }
+                            let defaults = UserDefaults.standard
+
+                            if let email = defaults.string(forKey: UserDefaultKeys.email), let token = defaults.string(forKey: UserDefaultKeys.token) {
+                                viewModel.leaveCommentOnGame(email: email, token: token, content: comment, gameName: game.name, score: self.rating)
+                            }
                             
                             self.comments.append(Comment(content: self.comment, sendTime: Comment.getCurrentDate(), rating: self.rating))
                             
