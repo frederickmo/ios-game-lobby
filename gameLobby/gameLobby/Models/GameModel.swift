@@ -46,7 +46,7 @@ extension Game {
             category: ["单机", "动作"],
             tags: [.offline, .action]),
         Game(
-            name: "DancingMiku",
+            name: "MikuDance",
             displayName: "与我共舞 Dancing Miku",
             previewImage: "https://636c-cloud1-0g0508tg0810d86e-1311181945.tcb.qcloud.la/exported%20data/ios%20game%20lobby/image/dancing_miku.png?sign=315e21fdc853f2d54fe357a19124fa4e&t=1652961693",
             description: "融合AR技术的全新音游呈现在你的面前！我们荣幸地邀请了Miku和她的小伙伴前来这场盛宴，您也想要参加这场精彩纷呈的舞会吗？",
@@ -129,7 +129,7 @@ extension Game {
             category: ["单机", "动作"],
             tags: [.offline, .action]),
         Game(
-            name: "DancingMiku",
+            name: "MikuDance",
             displayName: "与我共舞 Dancing Miku",
             previewImage: "https://636c-cloud1-0g0508tg0810d86e-1311181945.tcb.qcloud.la/exported%20data/ios%20game%20lobby/image/dancing_miku.png?sign=315e21fdc853f2d54fe357a19124fa4e&t=1652961693",
             description: "融合AR技术的全新音游呈现在你的面前！我们荣幸地邀请了Miku和她的小伙伴前来这场盛宴，您也想要参加这场精彩纷呈的舞会吗？",

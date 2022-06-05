@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ToastUI
 
 
 struct FrontPageView: View {
@@ -15,6 +16,8 @@ struct FrontPageView: View {
     @State var showSignUp: Bool = false
     
     @State var showSendVerificationEmail: Bool = true
+    
+    @State var showAutomaticLoginSuccess: Bool = true
     
     @StateObject var viewModel = ViewModel()
     
@@ -74,6 +77,7 @@ struct FrontPageView: View {
                                     Task {
                                         let loginResult = await viewModel.login(email: email, password: password)
                                         if loginResult {
+                                            showAutomaticLoginSuccess.toggle()
                                             globalVariables.loggedIn = true
                                         } else {
                                             globalVariables.loggedIn = false
@@ -91,6 +95,10 @@ struct FrontPageView: View {
             }
             .padding(.top, -maxCircleHeight / (getRect().height < 750 ? 1.5 : 1.6))
             .frame(maxHeight: .infinity, alignment: .top)
+            .toast(isPresented: $showAutomaticLoginSuccess, dismissAfter: 1.0) {
+                ToastView("自动登录成功")
+            }
+
         }
         .overlay (
             HStack {

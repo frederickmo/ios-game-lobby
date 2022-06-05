@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ToastUI
 
 struct LoginView: View {
     
@@ -13,6 +14,9 @@ struct LoginView: View {
     @State var password: String = ""
     
     @State var loggedIn: Bool = false
+    
+    @State var showLoginSuccess: Bool = false
+    @State var showLoginFailure: Bool = false
     
     @StateObject var viewModel = ViewModel()
     
@@ -67,8 +71,11 @@ struct LoginView: View {
                         let successfullyLoggedIn = await viewModel.login(email: email, password: password)
                         if successfullyLoggedIn {
                             loggedIn.toggle()
+                            showLoginSuccess.toggle()
                             globalVariables.loggedIn = true
                             globalVariables.automaticLogin = true
+                        } else {
+                            showLoginFailure.toggle()
                         }
                     }
                 } label: {
@@ -86,6 +93,14 @@ struct LoginView: View {
             }
         }
         .padding()
+        .toast(isPresented: $showLoginSuccess, dismissAfter: 1.0) {
+            ToastView("登录成功")
+        }
+        .toast(isPresented: $showLoginFailure, dismissAfter: 1.0) {
+            ToastView("登录失败")
+        }
+        
+
     }
 }
 
