@@ -134,7 +134,8 @@ class ViewModel: ObservableObject {
     
     func registerViaVerificationCode(verificationCode code: String, email: String, name: String, password: String) async -> Bool {
         guard let url = URL(string: "http://124.222.82.210:8176/user/register?code=" + code + "&email=" + email + "&name=" + name + "&password=" + password) else {
-            print("Invalid Url")
+            print_log("code: " + code + " email: " + email + " name: " + name + " password: " + password)
+            print_log("Invalid Url")
             return false
         }
         
@@ -183,6 +184,7 @@ class ViewModel: ObservableObject {
                     defaults.set(password, forKey: UserDefaultKeys.password)
                     defaults.set(loginResponse.token, forKey: UserDefaultKeys.token)
                     defaults.set(loginResponse.userName, forKey: UserDefaultKeys.name)
+                    defaults.set("https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/" + email + "headportrait.jpg", forKey: UserDefaultKeys.headPortrait)
                     
                     defaults.set(true, forKey: UserDefaultKeys.automaticLogin)
                     
@@ -326,6 +328,7 @@ struct UserDefaultKeys {
     static let password: String = "password"
     static let token: String = "token"
     static let name: String = "name"
+    static let headPortrait: String = "headPortrait"
     
     static let automaticLogin: String = "automaticLogin"
 }

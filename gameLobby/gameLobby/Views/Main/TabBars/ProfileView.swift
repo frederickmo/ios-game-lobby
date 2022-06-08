@@ -26,7 +26,7 @@ struct ProfileView: View {
     @StateObject var userDataViewModel = UserDataViewModel()
     @StateObject var viewModel = ViewModel()
     
-    @State private var asyncImageUrl: String = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/frederickmo@163.comheadportrait.jpg"
+    @State private var asyncImageUrl: String = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/" + UserDefaults.standard.string(forKey: UserDefaultKeys.email)! + "headportrait.jpg"
     
     @State private var showSuccessToast: Bool = false
     @State private var showFailureToast: Bool = false
@@ -291,7 +291,9 @@ struct ProfileView: View {
                     // 这是一个黑科技：先用refreshable()修饰符跟踪bool变量的toggle()方法，
                     // 再更新url就可以达到更新目的
                     showSuccessToast.toggle()
-                    asyncImageUrl = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/frederickmo@163.comheadportrait.jpg"
+                    asyncImageUrl = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/" + UserDefaults.standard.string(forKey: UserDefaultKeys.email)! + "headportrait.jpg"
+                    print_log("current asyncImageUrl: " + asyncImageUrl)
+                    print_log("UserDefaults的headPortrait: " + UserDefaults.standard.string(forKey: UserDefaultKeys.headPortrait)!)
                     avatarButtonDisable = false
                 case .failure(let error):
                     print_log("ERROR")

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @State var email: String = UserDefaults.standard.string(forKey: UserDefaultKeys.email) ?? ""
-    @State var password: String = UserDefaults.standard.string(forKey: UserDefaultKeys.password) ?? ""
+    @State var email: String = ""
+    @State var password: String = ""
     @State var confirmPassword: String = ""
     @State var name: String = ""
     @State var verificationCode: String = ""
