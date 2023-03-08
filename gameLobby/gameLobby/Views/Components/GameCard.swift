@@ -2,6 +2,8 @@
 //  GameCard.swift
 //  gameLobby
 //
+//  GameCard: 每个游戏的图片卡片
+//
 //  Created by Frederick Mo on 2022/5/19.
 //
 

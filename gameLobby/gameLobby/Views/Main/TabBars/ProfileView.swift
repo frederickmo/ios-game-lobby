@@ -2,6 +2,9 @@
 //  ProfileView.swift
 //  gameLobby
 //
+
+//  个人信息页面
+
 //  Created by Frederick Mo on 2022/5/19.
 //
 
@@ -262,8 +265,8 @@ struct ProfileView: View {
     //        ]
             //Header HERE
             let headers: HTTPHeaders = [
-                "email": email,
-                "token" : token,
+//                "email": email,
+//                "token" : token,
                 "Content-type": "multipart/form-data",
                 "Content-Disposition" : "form-data"
             ]
@@ -272,13 +275,13 @@ struct ProfileView: View {
             
             AF.upload(multipartFormData: { multipartFormData in
                 //Parameter for Upload files
-                multipartFormData.append(imgData, withName: "file",fileName: "furkan.png" , mimeType: "image/png")
+                multipartFormData.append(imgData, withName: "files",fileName: "furkan.png" , mimeType: "image/png")
     //            for (key, value) in parameters
     //            {
     //                multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
     //            }
             },
-               to: "http://124.222.82.210:8176/user/uploadHeadPortrait", //URL Here
+               to: "http://localhost:8000/multipleFiles", //URL Here
               usingThreshold:UInt64.init(),
                 method: .post,
                 headers: headers //pass header dictionary here
@@ -291,9 +294,9 @@ struct ProfileView: View {
                     // 这是一个黑科技：先用refreshable()修饰符跟踪bool变量的toggle()方法，
                     // 再更新url就可以达到更新目的
                     showSuccessToast.toggle()
-                    asyncImageUrl = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/" + UserDefaults.standard.string(forKey: UserDefaultKeys.email)! + "headportrait.jpg"
-                    print_log("current asyncImageUrl: " + asyncImageUrl)
-                    print_log("UserDefaults的headPortrait: " + UserDefaults.standard.string(forKey: UserDefaultKeys.headPortrait)!)
+//                    asyncImageUrl = "https://game-center-headportrait.oss-cn-hangzhou.aliyuncs.com/head%20portrait/" + UserDefaults.standard.string(forKey: UserDefaultKeys.email)! + "headportrait.jpg"
+//                    print_log("current asyncImageUrl: " + asyncImageUrl)
+//                    print_log("UserDefaults的headPortrait: " + UserDefaults.standard.string(forKey: UserDefaultKeys.headPortrait)!)
                     avatarButtonDisable = false
                 case .failure(let error):
                     print_log("ERROR")

@@ -1,6 +1,7 @@
 //
 //  ViewController.swift
 //  gameLobby
+//  控制图片上传的viewModel
 //
 //  Created by Frederick Mo on 2022/5/24.
 //

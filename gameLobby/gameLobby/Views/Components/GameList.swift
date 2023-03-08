@@ -2,6 +2,9 @@
 //  GameList.swift
 //  gameLobby
 //
+//  GameList：将所有GameCard进行排列的布局
+//
+//
 //  Created by Frederick Mo on 2022/5/19.
 //
 

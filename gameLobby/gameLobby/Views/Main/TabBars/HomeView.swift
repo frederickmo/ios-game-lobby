@@ -2,6 +2,8 @@
 //  HomeView.swift
 //  gameLobby
 //
+//  主页/游戏大厅视图
+
 //  Created by Frederick Mo on 2022/5/19.
 //
 

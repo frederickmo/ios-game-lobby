@@ -2,6 +2,8 @@
 //  MessageView.swift
 //  gameLobby
 //
+//  消息通知页面
+
 //  Created by Frederick Mo on 2022/5/19.
 //
 

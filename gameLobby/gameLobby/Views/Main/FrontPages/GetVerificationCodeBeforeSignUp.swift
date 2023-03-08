@@ -2,6 +2,8 @@
 //  GetVerificationCodeBeforeSignUp.swift
 //  gameLobby
 //
+//  注册 - 等待验证码页面
+
 //  Created by Frederick Mo on 2022/5/21.
 //
 

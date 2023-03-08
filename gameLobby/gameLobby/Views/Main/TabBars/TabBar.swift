@@ -2,6 +2,9 @@
 //  TabBar.swift
 //  gameLobby
 //
+
+//  下方导航栏组件
+
 //  Created by Frederick Mo on 2022/5/19.
 //
 

@@ -3,6 +3,8 @@
 //  gameLobby
 //
 //  Created by Frederick Mo on 2022/5/19.
+
+// 本地model，存储所有游戏的相关信息
 //
 
 import Foundation

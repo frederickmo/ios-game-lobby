@@ -232,8 +232,6 @@ class ViewModel: ObservableObject {
                         print_log("登出成功")
                         
                         UserDefaults.standard.set(false, forKey: UserDefaultKeys.automaticLogin)
-//                        globalVariables.automaticLogin = false
-//                        globalVariables.loggedIn = false
                     } else {
                         print_log("登出失败")
                     }
@@ -247,31 +245,6 @@ class ViewModel: ObservableObject {
         }
         
         task.resume()
-        
-//        do {
-//            let (data, _) = try await URLSession.shared.data(from: url)
-//
-//            if let decodedResponse = try? JSONDecoder().decode(LogOutResponse.self, from: data) {
-//                logOutResponse = decodedResponse
-//                print(logOutResponse.status)
-//                print("到哪一步了2")
-//
-//                if logOutResponse.status == "OK" {
-//                    globalVariables.automaticLogin = false
-//
-//                    let defaults = UserDefaults.standard
-//                    defaults.set(false, forKey: UserDefaultKeys.automaticLogin)
-//
-//                    print("登出成功")
-//                    return true
-//                } else {
-//                    print("登出失败")
-//                    return false
-//                }
-//            }
-//        } catch {
-//            print("登出过程解析错误")
-//        }
     }
     
     func leaveCommentOnGame(email: String, token: String, content: String, gameName: String, score: Int) {

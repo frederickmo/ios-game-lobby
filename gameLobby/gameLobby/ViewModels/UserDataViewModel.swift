@@ -1,6 +1,8 @@
 //
 //  UserDataViewModel.swift
 //  gameLobby
+
+// 控制图片上传功能的viewModel
 //
 //  Created by Frederick Mo on 2022/5/24.
 //
@@ -78,18 +80,7 @@ class UserDataViewModel: ObservableObject {
             print(responseData!)
             print_log("response")
             print(response!)
-//            if error == nil {
-//                print_log("error==nil，请求无错误")
-//                let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
-//                if let json = jsonData as? [String: Any] {
-//                    print_log(json)
-//                } else {
-//                    print_log("返回json解析失误或无json返回")
-//                }
-//            } else {
-//                print_log("upLoadTask函数执行失败")
-//                print_log(error)
-//            }
+            
             if(error != nil){
                     print_log("\(error!.localizedDescription)")
             } else {
@@ -106,7 +97,6 @@ class UserDataViewModel: ObservableObject {
                     print_log("uploaded to: \(responseString)")
                 }
         }).resume()
-        print_log("真的无语了")
     }
     
     func saveImage(image: UIImage) {

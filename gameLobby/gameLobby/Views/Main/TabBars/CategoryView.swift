@@ -2,6 +2,8 @@
 //  CategoryView.swift
 //  gameLobby
 //
+//  游戏分类页面
+
 //  Created by Frederick Mo on 2022/5/19.
 //
 

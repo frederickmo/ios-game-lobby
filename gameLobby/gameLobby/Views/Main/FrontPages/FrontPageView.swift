@@ -2,6 +2,8 @@
 //  FrontPageView.swift
 //  gameLobby
 //
+//  选择登录 / 注册页面
+
 //  Created by Frederick Mo on 2022/5/21.
 //
 

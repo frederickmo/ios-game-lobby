@@ -2,6 +2,9 @@
 //  GameView.swift
 //  gameLobby
 //
+
+//  GameView：单个游戏详情页视图
+
 //  Created by Frederick Mo on 2022/5/19.
 //
 

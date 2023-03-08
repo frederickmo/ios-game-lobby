@@ -2,6 +2,9 @@
 //  ImagePicker.swift
 //  gameLobby
 //
+
+//  上传图片中的imagePicker组件
+
 //  Created by Frederick Mo on 2022/5/24.
 //
 
